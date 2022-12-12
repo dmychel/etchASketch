@@ -6,6 +6,45 @@ const gridButton = document.getElementById('choice');
 let newDiv;
 let userSelection;
 
+let pink = changeColorPink();
+let purple = changeColorPurple();
+let red = changeColorRed()
+const colorOptions = [red, pink, purple]
+
+function userChoice(){
+    let validInput = false;
+    while(validInput == false){
+        userSelection = prompt('How big would you like your canvas?(eg. 8 = 8x8)');
+        if(userSelection === null){
+            return
+        }
+        else if(isNaN(userSelection)){
+            alert(`'${userSelection}' is not a number. please select a number from 1-18`)
+            console.log('not a number');
+            continue
+        }
+        else if(userSelection < 1){
+            console.log('too small');
+            alert(`'${userSelection}' is too small. please select a number from 1-18`)
+            continue
+        }
+        else if(userSelection > 18){
+            console.log('too big')
+            alert(`${userSelection} is too big. please select a number from 1-18`)
+            continue
+        }
+        else {
+            validInput == true;
+            console.log(userSelection);
+            gridButton.remove();
+            createGrid(userSelection);
+            container.style.border = '2px solid green'
+            container.style.borderRadius = '2px'
+            return
+        }
+    }
+}
+
 
 function createGrid(number){
     let numSquare = number * number;
@@ -27,7 +66,13 @@ function createGrid(number){
     })
 })
 }
-let canceled;
+
+function clearGrid(){
+    const gridDiv = document.querySelectorAll('#newDiv');
+    gridDiv.forEach(div =>{
+        div.style.backgroundColor = 'white';
+    })
+}
 
 function changeColorBlack(){
     const gridDiv = document.querySelectorAll('#newDiv');
@@ -91,6 +136,7 @@ function changeColorPink(){
 })
 }
 
+
 function eraser(){
     const gridDiv = document.querySelectorAll('#newDiv');
     gridDiv.forEach(div =>{
@@ -101,36 +147,5 @@ function eraser(){
 }
 
 
-function userChoice(){
-    let validInput = false;
-    while(validInput == false){
-        userSelection = prompt('How wide would you like your canvas?');
-        if(userSelection === null){
-            return
-        }
-        else if(isNaN(userSelection)){
-            alert(`'${userSelection}' is not a number. please select a number from 1-18`)
-            console.log('not a number');
-            continue
-        }
-        else if(userSelection < 1){
-            console.log('too small');
-            alert(`'${userSelection}' is too small. please select a number from 1-18`)
-            continue
-        }
-        else if(userSelection > 18){
-            console.log('too big')
-            alert(`${userSelection} is too big. please select a number from 1-18`)
-            continue
-        }
-        else {
-            validInput == true;
-            console.log(userSelection);
-            gridButton.remove();
-            createGrid(userSelection);
-            return
-        }
-    }
-}
 
 

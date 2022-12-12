@@ -6,7 +6,7 @@
 
 body {
     padding: 10px;
-    background-color: #020257;
+    background-color: #FAF9F6;
     display: flex;
     flex-direction: column;
 }
@@ -18,8 +18,6 @@ body {
 }
 
 .container {
-    border: 2px solid;
-    padding: 5px;
     display: grid;
     justify-content: center;
     align-self: center;

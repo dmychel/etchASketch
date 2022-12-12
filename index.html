@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="user-buttons">
-        <button onclick="userChoice()" class="button" id="choice">Click Me</button>
+        <button onclick="userChoice()" class="button" id="choice">Create Canvas</button>
         <button onclick="location.reload()" class="button">Restart/New Grid Size</button>
+        <button onclick="clearGrid()" class="button">Clear Grid</button>
     </div>
     <div class="drawing-container">
         <div class="color-markers">
@@ -21,7 +22,7 @@
             <button id="yellow" class="button" onclick="changeColorYellow()">Yellow</button>
             <button id="orange" class="button" onclick="changeColorOrange()">Orange</button>
             <button id="pink" class="button" onclick="changeColorPink()">Pink</button>
-            <button id="eraser" class="button" onclick="eraser(canceled)">Eraser</button>
+            <button id="eraser" class="button" onclick="eraser()">Eraser</button>
         </div>
         <div class="container" id="container_div"></div>
         <div></div>
